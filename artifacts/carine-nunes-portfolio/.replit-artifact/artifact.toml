@@ -1,0 +1,28 @@
+kind = "web"
+previewPath = "/"
+title = "Carine Nunes — Portfólio"
+description = "Portfólio autoral de Carine Nunes, com apresentação, galeria de imagens, comp card e contato para trabalhos comerciais e editoriais."
+version = "1.0.0"
+id = "artifacts/carine-nunes-portfolio"
+router = "path"
+
+[[services]]
+name = "web"
+paths = [ "/" ]
+localPort = 18808
+
+[services.development]
+run = "pnpm --filter @workspace/carine-nunes-portfolio run dev"
+
+[services.production]
+build = [ "pnpm", "--filter", "@workspace/carine-nunes-portfolio", "run", "build" ]
+serve = "static"
+publicDir = "artifacts/carine-nunes-portfolio/dist/public"
+
+[[services.production.rewrites]]
+from = "/*"
+to = "/index.html"
+
+[services.env]
+PORT = "18808"
+BASE_PATH = "/"
