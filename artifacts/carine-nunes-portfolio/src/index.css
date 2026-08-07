@@ -297,6 +297,35 @@ img {
   transform: translate(3px, -3px);
 }
 
+.hero-instagram {
+  display: inline-flex;
+  width: max-content;
+  align-items: center;
+  gap: 9px;
+  margin: 16px 0 0 clamp(3px, 1vw, 16px);
+  color: var(--muted);
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: .12em;
+  text-transform: lowercase;
+  transition: color .25s ease, transform .25s var(--ease);
+}
+
+.hero-instagram svg:last-child {
+  transition: transform .3s var(--ease);
+}
+
+.hero-instagram:hover,
+.hero-instagram:focus-visible {
+  color: var(--red);
+  transform: translateX(2px);
+}
+
+.hero-instagram:hover svg:last-child,
+.hero-instagram:focus-visible svg:last-child {
+  transform: translate(3px, -3px);
+}
+
 .hero-side-note {
   position: absolute;
   bottom: 33px;

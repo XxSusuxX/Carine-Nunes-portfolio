@@ -1,5 +1,5 @@
 import { useEffect, useState, type FormEvent } from 'react';
-import { ArrowDown, ArrowUp, ArrowUpRight, Check, Menu, MessageCircle, Send, X } from 'lucide-react';
+import { ArrowDown, ArrowUp, ArrowUpRight, Check, Instagram, Menu, MessageCircle, Send, X } from 'lucide-react';
 import heroImage from '@assets/Screenshot_20260807_153312_Google_1786135790989.jpg';
 import redEditorialImage from '@assets/20260719_104132_1786135790990.jpg';
 import blackLookImage from '@assets/Screenshot_20260807_161457_Google_1786135790989.jpg';
@@ -104,7 +104,6 @@ function App() {
           <a className="nav-link" href="#contato" onClick={closeMenu} data-testid="mobile-link-contato">Contato</a>
         </nav>
       </header>
-
       <main>
         <section className="hero" id="apresentacao" aria-labelledby="hero-title">
           <div className="hero-copy">
@@ -114,6 +113,18 @@ function App() {
             <a className="hero-cta reveal" href="#galeria" data-testid="link-view-portfolio">
               Portfólio
               <ArrowUpRight size={15} strokeWidth={1.5} />
+            </a>
+            <a
+              className="hero-instagram reveal"
+              href="https://www.instagram.com/carine_nunesz/"
+              target="_blank"
+              rel="noreferrer"
+              aria-label="Visitar Instagram de Carine Nunes"
+              data-testid="link-instagram"
+            >
+              <Instagram size={15} strokeWidth={1.4} />
+              @carine_nunesz
+              <ArrowUpRight size={14} strokeWidth={1.4} />
             </a>
             <div className="hero-side-note">scroll para explorar</div>
           </div>
@@ -167,7 +178,17 @@ function App() {
               <h2 className="section-heading" id="about-title">Feita de <em>verdade.</em></h2>
             </div>
             <div className="about-body">
-              <p className="about-lead reveal">Carine Nunes da Silva é uma modelo iniciante de 17 anos, natural de Douradina. Com uma beleza única e autêntica, busca sua primeira oportunidade no mundo da moda. Possui facilidade de comunicação, responsabilidade e dedicação — pronta para aprender e crescer profissionalmente.</p>
+              <p className="about-lead reveal">Sou criadora de conteúdo focada no segmento de moda. 
+
+              Meu objetivo é transformar peças de roupas em fotos e vídeos de alto impacto visual, ajudando marcas a destacarem seus produtos, gerarem engajamento e atraírem novos clientes. 
+
+              Trabalhos com foco em provador, lookbook, reels e fotografia de produtos.
+
+              Apaixonada por moda, estilo e criação de conteúdo. 
+
+              Ajudo marcas a darem vida às suas coleções por meio de imagens profissionais, vídeos dinâmicos e provadores.
+
+              Divulgo sua loja de roupas em troca de recebidos/permuta.</p>
               <div className="comp-card reveal">
                 <div className="comp-card-title">
                   <span className="eyebrow">Comp card</span>
@@ -233,7 +254,6 @@ function App() {
           </div>
         </section>
       </main>
-
       <footer className="site-footer">
         <div className="container footer-inner">
           <span className="footer-mark">Carine Nunes</span>
@@ -243,7 +263,6 @@ function App() {
           </a>
         </div>
       </footer>
-
       {selectedImage && (
         <div className="lightbox" role="dialog" aria-modal="true" aria-label={`Imagem ampliada: ${selectedImage.title}`} onClick={() => setSelectedImage(null)}>
           <button className="lightbox-close" type="button" onClick={() => setSelectedImage(null)} aria-label="Fechar imagem" data-testid="button-close-lightbox">
