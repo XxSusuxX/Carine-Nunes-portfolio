@@ -21,11 +21,13 @@ const details = [
   ['Nome', 'Carine Nunes da Silva'],
   ['Idade', '17 anos'],
   ['Cidade', 'Douradina, PR'],
-  ['Altura', '—'],
+  ['Altura', '166 cm'],
   ['Cabelo', 'Castanho Escuro'],
   ['Olhos', 'Castanhos'],
-  ['Manequim', '—'],
-  ['Calçado', '—'],
+  ['Busto', '76 cm'],
+  ['Cintura', '72 cm']
+  ['Quadril', '96 cm']
+  ['Calçado', '36'],
   ['Disponibilidade', 'Comercial • Editorial'],
 ];
 
@@ -33,7 +35,7 @@ function App() {
   const [menuOpen, setMenuOpen] = useState(false);
   const [selectedImage, setSelectedImage] = useState<GalleryImage | null>(null);
   const [submitted, setSubmitted] = useState(false);
-  const whatsappNumber = import.meta.env.VITE_WHATSAPP_NUMBER as string | undefined;
+  const whatsappNumber = 44998289752;
   const whatsappHref = whatsappNumber ? `https://wa.me/${whatsappNumber.replace(/\D/g, '')}` : undefined;
 
   useEffect(() => {
@@ -175,20 +177,13 @@ function App() {
           <div className="container about-grid">
             <div className="about-heading reveal">
               <div className="eyebrow">02 — Sobre</div>
-              <h2 className="section-heading" id="about-title">Feita de <em>verdade.</em></h2>
+              <h2 className="section-heading" id="about-title">Olá! Me chamo<em>Carine Nunes</em></h2>
             </div>
             <div className="about-body">
-              <p className="about-lead reveal">Sou criadora de conteúdo focada no segmento de moda. 
-
-              Meu objetivo é transformar peças de roupas em fotos e vídeos de alto impacto visual, ajudando marcas a destacarem seus produtos, gerarem engajamento e atraírem novos clientes. 
-
-              Trabalhos com foco em provador, lookbook, reels e fotografia de produtos.
-
-              Apaixonada por moda, estilo e criação de conteúdo. 
-
-              Ajudo marcas a darem vida às suas coleções por meio de imagens profissionais, vídeos dinâmicos e provadores.
-
-              Divulgo sua loja de roupas em troca de recebidos/permuta.</p>
+              <p className="about-lead reveal">Sou criadora de conteúdo focada no segmento de moda.
+                Meu objetivo é transformar peças de roupas em fotos e vídeos de alto impacto visual, ajudando marcas a destacarem seus produtos, gerarem engajamento e atraírem novos clientes.
+                Trabalhos com foco em provador, lookbook, reels e fotografia de produtos.
+                Apaixonada por moda, estilo e criação de conteúdo. Ajudo marcas a darem vida às suas coleções por meio de imagens profissionais, vídeos dinâmicos e provadores Divulgo sua loja de roupas em troca de recebidos/permuta.</p>
               <div className="comp-card reveal">
                 <div className="comp-card-title">
                   <span className="eyebrow">Comp card</span>
