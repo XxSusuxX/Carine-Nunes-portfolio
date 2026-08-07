@@ -35,7 +35,7 @@ function App() {
   const [menuOpen, setMenuOpen] = useState(false);
   const [selectedImage, setSelectedImage] = useState<GalleryImage | null>(null);
   const [submitted, setSubmitted] = useState(false);
-  const whatsappNumber = 44998289752;
+  const whatsappNumber = "44998289752";
   const whatsappHref = whatsappNumber ? `https://wa.me/${whatsappNumber.replace(/\D/g, '')}` : undefined;
 
   useEffect(() => {
