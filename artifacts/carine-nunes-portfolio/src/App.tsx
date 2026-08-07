@@ -25,8 +25,8 @@ const details = [
   ['Cabelo', 'Castanho Escuro'],
   ['Olhos', 'Castanhos'],
   ['Busto', '76 cm'],
-  ['Cintura', '72 cm']
-  ['Quadril', '96 cm']
+  ['Cintura', '72 cm'],
+  ['Quadril', '96 cm'],
   ['Calçado', '36'],
   ['Disponibilidade', 'Comercial • Editorial'],
 ];
@@ -35,8 +35,13 @@ function App() {
   const [menuOpen, setMenuOpen] = useState(false);
   const [selectedImage, setSelectedImage] = useState<GalleryImage | null>(null);
   const [submitted, setSubmitted] = useState(false);
-  const whatsappNumber = "44998289752";
-  const whatsappHref = whatsappNumber ? `https://wa.me/${whatsappNumber.replace(/\D/g, '')}` : undefined;
+
+  // 1. WhatsApp ajustado como STRING com o DDI do Brasil (55) + DDD (44) + Número
+  const whatsappNumber = '5544998289752';
+
+  // 2. Função limpa que garante apenas os números na URL do wa.me
+  const cleanPhone = whatsappNumber.replace(/\D/g, '');
+  const whatsappHref = cleanPhone ? `https://wa.me/${cleanPhone}` : undefined;
 
   useEffect(() => {
     const revealElements = Array.from(document.querySelectorAll<HTMLElement>('.reveal'));
@@ -67,8 +72,22 @@ function App() {
   }, [selectedImage]);
 
   const closeMenu = () => setMenuOpen(false);
+
   const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
+
+    // Lógica para enviar os dados do formulário direto para o WhatsApp do cliente se desejar
+    const formData = new FormData(event.currentTarget);
+    const name = formData.get('name') as string;
+    const company = formData.get('company') as string;
+    const message = formData.get('message') as string;
+
+    const messageText = `Olá Carine! Meu nome é ${name}${company ? ` (${company})` : ''}.\n\nMensagem: ${message}`;
+    const directUrl = `https://wa.me/${cleanPhone}?text=${encodeURIComponent(messageText)}`;
+
+    // Redireciona o usuário para o WhatsApp com a mensagem pronta
+    window.open(directUrl, '_blank');
+
     setSubmitted(true);
     event.currentTarget.reset();
   };
@@ -177,13 +196,13 @@ function App() {
           <div className="container about-grid">
             <div className="about-heading reveal">
               <div className="eyebrow">02 — Sobre</div>
-              <h2 className="section-heading" id="about-title">Olá! Me chamo<em>Carine Nunes</em></h2>
+              <h2 className="section-heading" id="about-title">Olá! Me chamo <em>Carine Nunes</em></h2>
             </div>
             <div className="about-body">
               <p className="about-lead reveal">Sou criadora de conteúdo focada no segmento de moda.
                 Meu objetivo é transformar peças de roupas em fotos e vídeos de alto impacto visual, ajudando marcas a destacarem seus produtos, gerarem engajamento e atraírem novos clientes.
                 Trabalhos com foco em provador, lookbook, reels e fotografia de produtos.
-                Apaixonada por moda, estilo e criação de conteúdo. Ajudo marcas a darem vida às suas coleções por meio de imagens profissionais, vídeos dinâmicos e provadores Divulgo sua loja de roupas em troca de recebidos/permuta.</p>
+                Apaixonada por moda, estilo e criação de conteúdo. Ajudo marcas a darem vida às suas coleções por meio de imagens profissionais, vídeos dinâmicos e provadores. Divulgo sua loja de roupas em troca de recebidos/permuta.</p>
               <div className="comp-card reveal">
                 <div className="comp-card-title">
                   <span className="eyebrow">Comp card</span>
@@ -241,7 +260,7 @@ function App() {
               {submitted && (
                 <p className="form-success" role="status" data-testid="status-form-success">
                   <Check size={16} strokeWidth={1.6} />
-                  Obrigada pela mensagem. Em breve entraremos em contato.
+                  Obrigada pela mensagem. Você será redirecionado para o WhatsApp!
                 </p>
               )}
               {!whatsappHref && <p className="whatsapp-notice">WhatsApp disponível mediante configuração de contato.</p>}
