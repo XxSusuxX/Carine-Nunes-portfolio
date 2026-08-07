@@ -12,9 +12,9 @@ type GalleryImage = {
 };
 
 const galleryImages: GalleryImage[] = [
+  { src: blackLookImage, title: 'Full Body', category: 'Presença' },
   { src: heroImage, title: 'Beauty', category: 'Olhar' },
   { src: closeUpImage, title: 'Editorial', category: 'Estrutura' },
-  { src: blackLookImage, title: 'Full Body', category: 'Presença' },
   { src: redEditorialImage, title: 'Editorial', category: 'Vermelho' },
 ];
 
