@@ -120,12 +120,19 @@ img {
 }
 
 .site-header {
-  position: absolute;
+  position: fixed;
   z-index: 10;
   top: 0;
   right: 0;
   left: 0;
+  border-bottom: 1px solid rgba(39, 33, 30, 0.08);
+  background: rgba(244, 240, 233, 0.84);
+  backdrop-filter: blur(14px);
   padding: 26px 0;
+}
+
+[id] {
+  scroll-margin-top: 92px;
 }
 
 .header-inner {
@@ -456,6 +463,15 @@ img {
 .gallery-item:focus-visible img {
   filter: saturate(1);
   transform: scale(1.045);
+}
+
+@media (min-width: 851px) {
+  /* Keep the close-up's complete face visible in the wide desktop tile. */
+  .gallery-item:nth-child(2) img {
+    object-fit: contain;
+    object-position: center;
+    background: #d8ddd7;
+  }
 }
 
 .gallery-overlay {
