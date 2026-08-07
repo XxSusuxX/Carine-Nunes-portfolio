@@ -13,9 +13,9 @@ type GalleryImage = {
 
 const galleryImages: GalleryImage[] = [
   { src: heroImage, title: 'Beauty', category: 'Olhar' },
-  { src: redEditorialImage, title: 'Editorial', category: 'Vermelho' },
-  { src: blackLookImage, title: 'Full Body', category: 'Presença' },
   { src: closeUpImage, title: 'Editorial', category: 'Estrutura' },
+  { src: blackLookImage, title: 'Full Body', category: 'Presença' },
+  { src: redEditorialImage, title: 'Editorial', category: 'Vermelho' },
 ];
 
 const details = [
