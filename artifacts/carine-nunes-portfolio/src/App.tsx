@@ -13,7 +13,6 @@ type GalleryImage = {
 
 const galleryImages: GalleryImage[] = [
   { src: blackLookImage, title: 'Full Body', category: 'Presença' },
-  { src: heroImage, title: 'Beauty', category: 'Olhar' },
   { src: closeUpImage, title: 'Editorial', category: 'Estrutura' },
   { src: redEditorialImage, title: 'Editorial', category: 'Vermelho' },
 ];
@@ -135,7 +134,7 @@ function App() {
           <div className="container">
             <div className="section-topline reveal">
               <h2 className="eyebrow" id="gallery-title">Portfólio</h2>
-              <span className="section-number">01 / 04</span>
+              <span className="section-number">01 / 03</span>
             </div>
             <div className="gallery-grid">
               {galleryImages.map((image, index) => (
